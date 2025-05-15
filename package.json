@@ -1,0 +1,12 @@
+{
+  "name": "basic-e2e-testing",
+  "version": "1.0.0",
+  "description": "This is a rapository for basic E2E UI Testing with Cypress. The test cases are written in JavaScript and the test are executed in the browser.",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
