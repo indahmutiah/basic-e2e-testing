@@ -23,3 +23,23 @@ This is a rapository for basic E2E UI Testing with Cypress. The test cases are w
 - Approve leave
 - Login as employee
 - Expect leave to be approved
+
+## Installation
+
+1. Install Cypress
+
+```bash
+npm install cypress
+```
+
+2. Install Xpath
+
+```bash
+npm install cypress-xpath
+```
+
+## Running the tests
+
+```bash
+npx cypress open
+```

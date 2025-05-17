@@ -5,8 +5,9 @@ let dropdownRole = `//label[text()='User Role']/following::div[contains(@class,'
 let dropdownStatus = `//label[text()='Status']/following::div[contains(@class,'oxd-select-text-input')][1]`;
 let userSuggestion = `//input[@placeholder='Type for hints...']`;
 let userSuggestionResult = `//div[@role='listbox']//div[@role='option'][1]`;
+let buttonSave = `//button[normalize-space()='Save']`;
 
-describe("Task E2E Test", () => {
+describe("Task E2E Test No1 dan No2", () => {
   context("1. Menambahkan Karyawan Baru", () => {
     beforeEach(() => {
       cy.visit(baseUrl);
@@ -33,7 +34,7 @@ describe("Task E2E Test", () => {
       cy.xpath(`(//input[@type='password'])[1]`).type("indah123");
       cy.xpath(`(//input[@type='password'])[2]`).type("indah123");
 
-      cy.xpath(`//button[normalize-space()='Save']`).click();
+      cy.xpath(buttonSave).click();
       cy.wait(5000);
     });
     it("1.3 Buat Akun Untuk Karyawan", () => {
@@ -55,7 +56,7 @@ describe("Task E2E Test", () => {
       cy.xpath(`(//input[@type='password'])[1]`).type("indah123");
       cy.xpath(`(//input[@type='password'])[2]`).type("indah123");
 
-      cy.xpath(`//button[normalize-space()='Save']`).click();
+      cy.xpath(buttonSave).click();
     });
   });
 
@@ -86,7 +87,7 @@ describe("Task E2E Test", () => {
       cy.xpath(dropdownLeave).click();
       cy.xpath(`//div[@role='listbox']//div[@role='option'][5]`).click();
       cy.xpath(`//label[text()='Entitlement']/following::input[1]`).type(12);
-      cy.xpath(`//button[normalize-space()='Save']`).click();
+      cy.xpath(buttonSave).click();
 
       cy.xpath(`//button[normalize-space()='Confirm']`).click();
     });
