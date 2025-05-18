@@ -93,3 +93,43 @@ describe("Task E2E Test No1 dan No2", () => {
     });
   });
 });
+
+describe("Negative Login Case", () => {
+  it.only("Invalid Login", () => {
+    cy.visit(baseUrl);
+    cy.fixture("invalidLogin").then((data) => {
+      data.forEach((user) => {
+        const usernameInput = `//input[@placeholder='Username']`;
+        const passwordInput = `//input[@placeholder='Password']`;
+        const loginButton = `//button[normalize-space()='Login']`;
+
+        cy.xpath(usernameInput).clear();
+        if (user.username) {
+          cy.xpath(usernameInput).type(user.username);
+        }
+
+        cy.xpath(passwordInput).clear();
+        if (user.password) {
+          cy.xpath(passwordInput).type(user.password);
+        }
+
+        cy.xpath(loginButton).click();
+
+        // Assertion Condition
+        if (!user.username || !user.password) {
+          cy.get(".oxd-input-field-error-message").should(
+            "contain",
+            "Required"
+          );
+        } else {
+          cy.get(".oxd-alert-content-text").should(
+            "contain",
+            "Invalid credentials"
+          );
+        }
+
+        cy.wait(1500);
+      });
+    });
+  });
+});
